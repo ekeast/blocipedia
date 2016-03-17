@@ -1,24 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @wiki.title %>
-</p>
+<h3>
+  <strong><%= @wiki.title %></strong>
+</h3>
 
 <p>
-  <strong>Body:</strong>
   <%= @wiki.body %>
 </p>
 
 <p>
-  <strong>Private:</strong>
-  <%= @wiki.private %>
-</p>
-
-<p>
-  <strong>User:</strong>
+  <strong>Created by:</strong>
   <%= @wiki.user %>
 </p>
 
 <%= link_to 'Edit', edit_wiki_path(@wiki) %> |
-<%= link_to 'Back', wikis_path %>
+<%= link_to 'Delete', wiki_path, method: :delete %>

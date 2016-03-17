@@ -1,10 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>All Wikis</h1>
-
+<h3>Wikis | <%= link_to 'Create Wiki', new_wiki_path %></h3>
 <table>
   <thead>
-    <tr>      
+    <tr>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,18 +11,10 @@
   <tbody>
     <% @wikis.each do |wiki| %>
       <tr>
-        <td><%= wiki.title %></td>
-        <td><%= wiki.body %></td>
-        <td><%= wiki.private %></td>
-        <td><%= wiki.user %></td>
-        <td><%= link_to 'Show', wiki %></td>
-        <td><%= link_to 'Edit', edit_wiki_path(wiki) %></td>
-        <td><%= link_to 'Destroy', wiki, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "#{wiki.title}", wiki %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Wiki', new_wiki_path %>

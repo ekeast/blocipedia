@@ -13,9 +13,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def login
-    @login || self.username || self.email
-  end
+  attr_accessor :login
 
   validates :username,
     :presence => true,

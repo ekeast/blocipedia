@@ -17,10 +17,23 @@
 @import "bootstrap";
 
 
-#myDiv img
-{
-  max-width:100%;
-  max-height:100%;
-  margin:auto;
-  display:block;
+.myDiv {
+  width: 370px;
+  height: 220px;
+  overflow: hidden;
+
+  img {
+    width:100%;
+    margin:auto;
+    display:block;
+  }
+}
+
+input#wiki_title {
+  width:606px;
+}
+
+textarea#wiki_body {
+  width:606px;
+  height: 200px;
 }
