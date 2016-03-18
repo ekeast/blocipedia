@@ -1,5 +1,6 @@
 class WikisController < ApplicationController
   before_action :set_wiki, only: [:show, :edit, :update, :destroy]
+  include Pundit
 
   # GET /wikis
   # GET /wikis.json
@@ -24,8 +25,7 @@ class WikisController < ApplicationController
   # POST /wikis
   # POST /wikis.json
   def create
-    @wiki = Wiki.new(wiki_params)
-    @wiki.user = current_user
+    @wiki = current_user.wikis.new(wiki_params)
     respond_to do |format|
       if @wiki.save
         format.html { redirect_to @wiki, notice: 'Wiki was successfully created.' }
@@ -40,6 +40,8 @@ class WikisController < ApplicationController
   # PATCH/PUT /wikis/1
   # PATCH/PUT /wikis/1.json
   def update
+    @wiki = Wiki.find(params[:id])
+    authorize @wiki
     respond_to do |format|
       if @wiki.update(wiki_params)
         format.html { redirect_to @wiki, notice: 'Wiki was successfully updated.' }
