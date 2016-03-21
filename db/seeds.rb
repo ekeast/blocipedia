@@ -24,8 +24,7 @@ users = User.all
   )
 end
 
-user = User.first
-user.update_attributes!(
+User.find_or_create!(
   username: 'ekeast',
   email: 'ekeast328@gmail.com',
   password: 'password'
