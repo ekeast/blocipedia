@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'pundit'
 
+gem 'redcarpet'
+
 gem 'stripe'
 
 gem 'faker'

@@ -13,7 +13,6 @@ class ChargesController < ApplicationController
     )
 
     current_user.premium!
-    current_user.wikis.update_all(private:false)
 
     flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
     redirect_to wikis_path
