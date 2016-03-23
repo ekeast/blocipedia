@@ -10,9 +10,17 @@
 
   <tbody>
     <% @wikis.each do |wiki| %>
+      <% if current_user.admin? || current_user.premium? %>
       <tr>
         <td><%= link_to "#{wiki.title}", wiki %></td>
       </tr>
+      <% else %>
+        <% unless wiki.private == true %>
+        <tr>
+          <td><%= link_to "#{wiki.title}", wiki %></td>
+        </tr>
+        <% end %>
+      <% end %>
     <% end %>
   </tbody>
 </table>

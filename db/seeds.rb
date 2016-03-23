@@ -15,20 +15,32 @@ end
 
 users = User.all
 
-20.times do
+10.times do
   Wiki.create!(
   user: users.sample,
   title: Faker::Hipster.sentence,
   body: Faker::Lorem.paragraph,
-  private: Faker::Boolean.boolean
+  private: true
   )
 end
 
-User.find_or_create!(
-  username: 'ekeast',
-  email: 'ekeast328@gmail.com',
-  password: 'password'
-)
+10.times do
+  Wiki.create!(
+  user: users.sample,
+  title: Faker::Hipster.sentence,
+  body: Faker::Lorem.paragraph,
+  private: false
+  )
+end
+
+#user = User.find_or_create :username => 'ekeast', :email => 'ekeast328@gmail.com', :password => 'password'
+
+#user = User.new
+#user.username = 'ekeast'
+#user.email = 'ekeast328@gmail.com'
+#user.password = 'password'
+#user.skip_confirmation!
+#user.save!
 
 puts "Seeds finished!"
 puts "#{User.count} users created"
