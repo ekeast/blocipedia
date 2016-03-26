@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  resources :wikis
+  get 'collaborators/index'
+
+  get 'collaborators/create'
+
+  get 'collaborators/destroy'
+
+  resources :wikis do
+    resources :collaborators
+  end
+  
   devise_for :users
   root 'welcome#index'
 

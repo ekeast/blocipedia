@@ -2,4 +2,9 @@
 
 <%= render 'form' %>
 
+<% if @wiki.private == true %>
+<p>Add a Collaborator to this Wiki</p>
+<div class="field">
+</div>
+<% end %>
 <%= link_to 'Back', wikis_path %>
