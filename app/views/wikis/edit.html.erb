@@ -3,8 +3,10 @@
 <%= render 'form' %>
 
 <% if @wiki.private == true %>
-<p>Add a Collaborator to this Wiki</p>
-<div class="field">
-</div>
+<p>Edit Collaborators for this Wiki</p>
+<%= link_to 'Edit Collaborators', wiki_collaborators_path(@wiki), method: :get %>
 <% end %>
+
+
+
 <%= link_to 'Back', wikis_path %>

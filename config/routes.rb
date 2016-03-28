@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :wikis do
     resources :collaborators
   end
-  
+
   devise_for :users
   root 'welcome#index'
 
